@@ -1,0 +1,19 @@
+# Secret / API Keys (Never commit keys to GitHub)
+Gemini.txt
+.env
+*.env
+
+# Python Virtual Environments & Cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
