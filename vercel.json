@@ -16,10 +16,6 @@
     {
       "source": "/api/save_key",
       "destination": "/api/save_key.py"
-    },
-    {
-      "source": "/api",
-      "destination": "/api/index.py"
     }
   ]
 }
