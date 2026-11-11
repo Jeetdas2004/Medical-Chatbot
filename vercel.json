@@ -1,0 +1,25 @@
+{
+  "functions": {
+    "api/*.py": {
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/config",
+      "destination": "/api/config.py"
+    },
+    {
+      "source": "/api/chat",
+      "destination": "/api/chat.py"
+    },
+    {
+      "source": "/api/save_key",
+      "destination": "/api/save_key.py"
+    },
+    {
+      "source": "/api",
+      "destination": "/api/index.py"
+    }
+  ]
+}

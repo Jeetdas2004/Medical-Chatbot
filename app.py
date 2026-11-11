@@ -28,6 +28,7 @@ DEFAULT_MODELS = [
     "gemini-3-flash-preview",
     "gemini-3.1-flash-lite",
     "gemini-3.8-flash",
+    "gemini-2.5-flash",
 ]
 
 MEDICAL_SYSTEM_INSTRUCTION = """You are Dr. Gemini, an exceptionally knowledgeable, compassionate, and thorough AI Medical Assistant. You possess deep knowledge across clinical medicine, pharmacology, pathology, anatomy, emergency triage, radiology, diagnostics, nutrition, and preventive healthcare.

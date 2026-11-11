@@ -972,10 +972,18 @@
       try {
         const res = await fetch('/api/config');
         const data = await res.json();
+        const savedLocalKey = localStorage.getItem('gemini_api_key') || '';
+
         if (data.has_key) {
           apiStatusDot.classList.add('active');
           apiStatusText.textContent = `Connected (${data.masked_key})`;
           apiKeyInput.placeholder = `Active: ${data.masked_key}`;
+        } else if (savedLocalKey) {
+          apiStatusDot.classList.add('active');
+          const masked = savedLocalKey.length > 10 ? `${savedLocalKey.slice(0, 6)}...${savedLocalKey.slice(-4)}` : 'Key saved';
+          apiStatusText.textContent = `Connected (${masked})`;
+          apiKeyInput.value = savedLocalKey;
+          apiKeyInput.placeholder = `Active: ${masked}`;
         } else {
           apiStatusDot.classList.remove('active');
           apiStatusText.textContent = 'API Key required';
@@ -991,7 +999,11 @@
     // Auto-save API Key on Change
     apiKeyInput.addEventListener('change', async () => {
       const key = apiKeyInput.value.trim();
-      if (!key) return;
+      if (key) {
+        localStorage.setItem('gemini_api_key', key);
+      } else {
+        localStorage.removeItem('gemini_api_key');
+      }
       try {
         const res = await fetch('/api/save_key', {
           method: 'POST',
@@ -1366,7 +1378,7 @@
 
       try {
         const selectedModel = modelSelect.value;
-        const customApiKey = apiKeyInput.value.trim();
+        const customApiKey = apiKeyInput.value.trim() || localStorage.getItem('gemini_api_key') || '';
 
         const payload = {
           messages: conversationHistory,

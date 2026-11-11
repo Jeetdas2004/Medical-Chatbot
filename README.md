@@ -59,6 +59,25 @@ python app.py
 ---
 
 ## 🔑 API Key
-- The bot automatically loads your key from `Gemini.txt`.
-- You can also view, enter, or update your API key anytime in the sidebar of the chat interface.
+- The bot automatically loads your key from `Gemini.txt` or the `GEMINI_API_KEY` environment variable.
+- You can also view, enter, or update your API key anytime in the sidebar of the chat interface (persisted locally in browser).
+
+---
+
+## 🌐 Deploy to Vercel
+
+1. Commit and push your latest code to GitHub:
+   ```bash
+   git add .
+   git commit -m "Configure Vercel serverless deployment"
+   git push origin main
+   ```
+2. Go to [vercel.com](https://vercel.com) and log in.
+3. Click **"Add New..."** -> **"Project"**.
+4. Select your GitHub repository (`Multilingual-RAG-based-Chatbot`) and click **Import**.
+5. Leave the default Build & Output settings.
+6. Expand **Environment Variables** and add:
+   - **Key**: `GEMINI_API_KEY`
+   - **Value**: Your Google Gemini API Key
+7. Click **Deploy**. Your medical assistant is now live on the web!
 
